@@ -11,22 +11,20 @@
 @implementation Patient
 
 
-- (instancetype)initWithAge:(NSString *)name andAge:(NSInteger *)age
+- (instancetype)initWithAge:(NSString *)name hasOHIP:(BOOL)hasOHIP andAge:(NSInteger *)age
 {
 	self = [super init];
 	if (self) {
 		_name = name;
 		_age = age;
+		_hasOHIP = hasOHIP;
 	}
 	return self;
 }
 
--(BOOL) hasOHIP {
-	// if has OHIP - can treat, if not, NO.
-	return YES;
-}
--(void) visit {
-	// is sick and goes to see doctor
+
+-(void) visit:(Doctor *)doctor {
+	[doctor acceptPatient:self];
 }
 
 

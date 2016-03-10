@@ -7,15 +7,17 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "Doctor.h"
 
 @interface Patient : NSObject
 
 @property (weak, nonatomic) NSString *name;
 @property (nonatomic) NSInteger *age;
+@property (nonatomic) BOOL hasOHIP;
 
-- (instancetype)initWithAge:(NSString *)name andAge:(NSInteger *)age;
+- (instancetype)initWithAge:(NSString *)name hasOHIP:(BOOL)hasOHIP andAge:(NSInteger *)age;
 
--(void) visit;
--(BOOL) hasOHIP;
+-(void) visit:(Doctor *)doctor;
+
 
 @end
